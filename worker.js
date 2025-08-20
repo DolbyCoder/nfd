@@ -103,6 +103,12 @@ async function onMessage(message) {
       text: startMsg,
     })
   }
+  if (/^\/bind(\s|$)/.test(message.text)) {
+    return sendMessage({
+      chat_id: message.chat.id,
+      text: '请至自助服务机器人 @HDDolbybot 绑定账号'
+    });
+  }
   if (message.chat.id.toString() === ADMIN_UID) {
     if (!message?.reply_to_message?.chat) {
       return sendMessage({
